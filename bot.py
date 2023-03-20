@@ -34,7 +34,7 @@ async def add(ctx, arg, *args):
     role = discord.utils.get(ctx.guild.roles, name="Bank")
     if role in ctx.author.roles:
         if not arg.isdigit():
-            await ctx.send("Számot adj meg kérlek!", delete_after=2)
+            await ctx.send("Please enter a number!", delete_after=2)
             await ctx.message.delete()
             return
         elif arg.isdigit():
@@ -44,21 +44,21 @@ async def add(ctx, arg, *args):
             embed = discord.Embed(
                 title=("Continental Bank"),
                 description=(
-                    f'Félretett pénz jelenleg: ${bank:,}'
-                    f'\nHozzáadás indoka: "{arg2}"'
+                    f'Current balance: ${bank:,}'
+                    f'\nDeposit reason: "{arg2}"'
                     ),
                 colour=discord.Colour.dark_grey()
             )
             now = datetime.datetime.now()
             embed.set_footer(text=now.strftime("%Y-%m-%d %H:%M:%S"))
             arg = int(arg)
-            print(f'[{now.strftime("%Y-%m-%d %H:%M:%S")}] {ctx.message.author.name} Added ${arg:,} to the bank, new balance: ${bank:,}, hozzáadás indoka: {arg2}')
+            print(f'[{now.strftime("%Y-%m-%d %H:%M:%S")}] {ctx.message.author.name} Added ${arg:,} to the bank, new balance: ${bank:,}, deposit reason: {arg2}')
 
             await channel.send(embed=embed)
             await ctx.message.delete()
             save_balance()
     else:
-        await ctx.send("Nem nyúlhatsz bele a kasszába!", delete_after=5)
+        await ctx.send("You can't edit the balance!", delete_after=5)
         await ctx.message.delete()
 
 @bot.command(pass_context=True)
@@ -68,7 +68,7 @@ async def remove(ctx, arg, *args):
     role = discord.utils.get(ctx.guild.roles, name="Bank")
     if role in ctx.author.roles:
         if not arg.isdigit():
-            await ctx.send("Számot adj meg kérlek!", delete_after=2)
+            await ctx.send("Please enter a number!", delete_after=2)
             await ctx.message.delete()
             return
         elif arg.isdigit():
@@ -78,24 +78,24 @@ async def remove(ctx, arg, *args):
                 embed = discord.Embed(
                     title=("Continental Bank"),
                     description=(
-                        f'Félretett pénz: ${bank:,}'
-                        f'\nKivétel indoka: "{arg2}"'
+                        f'Current balance: ${bank:,}'
+                        f'\Withdraw reason: "{arg2}"'
                         ),
                     colour=discord.Colour.dark_grey()
                 )
                 now = datetime.datetime.now()
                 embed.set_footer(text=now.strftime("%Y-%m-%d %H:%M:%S"))
                 arg = int(arg)
-                print(f'[{now.strftime("%Y-%m-%d %H:%M:%S")}] {ctx.message.author.name} Removed ${arg:,} from the bank, new balance: ${bank:,}, kivétel indoka: {arg2}')
+                print(f'[{now.strftime("%Y-%m-%d %H:%M:%S")}] {ctx.message.author.name} Removed ${arg:,} from the bank, new balance: ${bank:,}, withdraw reason: {arg2}')
 
                 await channel.send(embed=embed)
                 await ctx.message.delete()
                 save_balance()
             elif bank - int(arg) < 0:
-                await ctx.send("Nem tudsz ennyit kivonni!", delete_after=2)
+                await ctx.send("You can't withdraw that much!", delete_after=2)
                 await ctx.message.delete()
     else:
-        await ctx.send("Nem nyúlhatsz bele a kasszába!", delete_after=5)
+        await ctx.send("You can't edit the balance!", delete_after=5)
         await ctx.message.delete()
 
 @bot.command(pass_context=True)
@@ -112,7 +112,7 @@ async def set(ctx, arg):
                 embed = discord.Embed(
                     title=("Continental Bank"),
                     description=(
-                        f'Félretett pénz: ${bank:,}'),
+                        f'Current balance: ${bank:,}'),
                     colour=discord.Colour.dark_grey()
                 )
                 now = datetime.datetime.now()
@@ -124,13 +124,13 @@ async def set(ctx, arg):
                 await ctx.message.delete()
                 save_balance()
             elif value < 0:
-                await ctx.send("Nem lehet minusz az érték!", delete_after=2)
+                await ctx.send("The value cannot be negative!", delete_after=2)
                 await ctx.message.delete()
         except ValueError:
-                await ctx.send("Számot adj meg kérlek!", delete_after=2)
+                await ctx.send("Please enter a number!", delete_after=2)
                 await ctx.message.delete()
     else:
-        await ctx.send("Nem nyúlhatsz bele a kasszába!", delete_after=5)
+        await ctx.send("You can't edit the balance!", delete_after=5)
         await ctx.message.delete()
 
 bot.run(TOKEN)
