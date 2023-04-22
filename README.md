@@ -14,7 +14,7 @@ To use this bot, you'll need:
 ## Installation
 
 1. Clone this repository to your local machine.
-2. Install the required packages by running pip install -r requirements.txt in the terminal.
+2. Install the required packages by running **pip install -r requirements.txt** in the terminal.
 3. In the **bot.py** file, replace *'the-token'* with your bot's token, replace *'YOURCSVFILE.csv'* with the name of your CSV file.
 4. Replace the channel IDs in the code with the ID of the channel where you want the bot commands to function.
 5. Run the bot by executing python bot.py in the terminal.
