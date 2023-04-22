@@ -21,9 +21,9 @@ To use this bot, you'll need:
 
 ## Commands
 
-**?add [amount] [reason]**: Adds the specified amount to the bank account and provides a reason for the deposit.
-**?remove [amount] [reason]**: Removes the specified amount from the bank account and provides a reason for the withdrawal.
-**?set [amount]**: Sets the bank account balance to the specified amount.
+**?add [amount] [reason]**: Adds the specified amount to the bank account and provides a reason for the deposit.<br>
+**?remove [amount] [reason]**: Removes the specified amount from the bank account and provides a reason for the withdrawal.<br>
+**?set [amount]**: Sets the bank account balance to the specified amount.<br>
 *Note: Only users with the "Bank" role can use this command.*
 
 ## License
