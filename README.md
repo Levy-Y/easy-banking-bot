@@ -9,7 +9,7 @@ To use this bot, you'll need:
 - Python 3.6 or higher
 - discord.py library
 - A Discord account and server
-- A bot token (obtained from the Discord Developer Portal)
+- A bot token (obtained from the [Discord Developer Portal](https://discord.com/developers/applications))
 
 ## Installation
 
