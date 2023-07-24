@@ -46,6 +46,18 @@ Here are the commands available for the bot:
 
 *Note: The "Bank" role is required to execute the balance-related commands, and the "Leader" role is needed to perform admin commands.*
 
+## Logging
+
+The RP Server Assistant bot includes a robust logging system to track and record important events and activities within the server. This feature helps server administrators and moderators keep a detailed record of various interactions and activities performed by the users and the bot itself.
+
+### How Logging Works
+
+The logging function captures essential events such as user joins, leaves, warns, and other significant commands executed by users with the "Leader" role. Additionally, it logs successful and failed attempts at modifying user data, such as updating user information, adding or removing money, and performing administrative actions.
+
+### Accessing Logs
+
+The log entries are stored in a separate log file, which is continuously updated as events occur. Server administrators can access and review these logs to gain insights into user interactions and bot activities.
+
 ## License
 
 This project is licensed under the MIT License. Refer to the LICENSE file for more details.
